@@ -26,13 +26,14 @@ function undoChoice() {
     choiceList.pop(); // gets last item 
     // deciding the last item with .length ( the -1 is because the .length goes to end +1 of array)
     let slug = choiceList[choiceList.length - 1];
+    return slug;
 
 }
 
 
 
 let pageContent = document.getElementById('story-text');
-let choicesUL = doucment.querySelector('#choices');
+let choicesUL = document.querySelector('#choices');
 
 function updatePage(newPage) {
     pageContent.innerHTML = newPage.text;
@@ -52,7 +53,7 @@ function updatePage(newPage) {
     addEventListeners();
 }
 
-function changePage() {
+function changePage(slug) {
     recordChoice(slug);
     let currentPage = getCurrentPage(slug);
     updatePage(currentPage);
